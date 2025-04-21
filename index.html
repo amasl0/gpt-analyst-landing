@@ -86,22 +86,49 @@
     </ul>
   </section>
 
-  <!-- Форма записи -->
-  <section id="signup" class="bg-indigo-600">
-    <div class="max-w-2xl mx-auto px-4 py-16 text-center space-y-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-white">Получить ранний доступ</h2>
-      <form action="https://tally.so/r/XXXX" method="POST" class="space-y-4" onsubmit="plausible('form_submit')">
-        <input type="email" name="email" placeholder="Ваш e‑mail" required class="w-full px-4 py-3 rounded-lg" />
-        <button type="submit" class="w-full px-4 py-3 rounded-lg bg-white text-indigo-700 font-semibold hover:bg-gray-100 transition">
-          Отправить
-        </button>
-      </form>
+ <!-- Signup Form -->
+  <section id="signup" class="max-w-2xl mx-auto px-6 py-16 bg-white rounded-xl shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Записаться в ранний доступ</h2>
+    <!-- Форма Formspree: зарегистрируйтесь на formspree.io и получите свой ID -->
+    <form id="signup-form" action="https://formspree.io/f/xjkwbpoj" method="POST" class="space-y-4">
+      <input type="email" name="email" required placeholder="Ваш email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <button type="submit" onclick="plausible('form_submit')" class="w-full px-4 py-3 bg-indigo-600 text-white rounded-xl shadow">Отправить</button>
+    </form>
+    <div id="success-message" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-md text-center">
+      Спасибо! Мы скоро свяжемся с вами.
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center text-sm text-gray-500">
-    © 2024 AI‑Analyst. Все права защищены.
+  <footer class="text-center text-gray-500 text-sm py-6">
+    © 2025 AI‑Аналитик. Все права защищены.
   </footer>
+
+  <!-- Form handling script -->
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.classList.add('hidden');
+          document.getElementById('success-message').classList.remove('hidden');
+          setTimeout(() => window.location.href = '/', 3000);
+        } else {
+          const data = await res.json();
+          alert(data.error || 'Ошибка отправки. Попробуйте позже.');
+        }
+      } catch (err) {
+        alert('Ошибка сети. Попробуйте позже.');
+      }
+    });
+  </script>
+
 </body>
 </html>
