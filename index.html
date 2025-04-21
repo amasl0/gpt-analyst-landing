@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI‑Аналитик данных и экспериментов</title>
+  
+  <!-- Plausible analytics -->
+  <script defer data-domain="auto-analytic" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.tagged-events.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+  <!-- Hero -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-20 text-center space-y-6">
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+        Ваш персональный AI‑аналитик данных и экспериментов
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg text-gray-600">
+        Дизайн эксперимента, мониторинг, итоговый отчёт и подбор KPI — за минуты, без очереди к аналитику.
+      </p>
+      <a href="#signup" class="inline-flex items-center px-8 py-4 rounded-xl bg-indigo-600 text-white text-lg font-semibold shadow-md hover:bg-indigo-700 transition"
+         onclick="plausible('cta_click')">
+        Записаться в ранний доступ
+      </a>
+    </div>
+  </header>
+
+  <!-- Боль → Решение -->
+  <section class="max-w-6xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-2">
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Типичные проблемы</h2>
+      <ul class="space-y-3 list-disc list-inside text-gray-700">
+        <li>Недели ожидания, пока аналитик напишет SQL и посчитает метрики</li>
+        <li>Сложно следить за экспериментом в реальном времени</li>
+        <li>Нет единого формата отчётов — каждая команда пишет по‑своему</li>
+        <li>Ручной выбор KPI и сложные формулы конверсий</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Что делает AI‑аналитик</h2>
+      <ul class="space-y-3 list-disc list-inside text-gray-700">
+        <li>Подключает ваше хранилище в режиме read‑only и генерирует корректный SQL</li>
+        <li>Мониторит метрики ежедневно и шлёт апдейты в Slack</li>
+        <li>Формирует единый Markdown/PDF‑отчёт с lift, p‑value, CI</li>
+        <li>Советует KPI и OKR на основе исторических данных</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Как это работает -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center space-y-6">
+      <h2 class="text-2xl font-bold">Как это работает</h2>
+      <div class="grid md:grid-cols-4 gap-6 text-left">
+        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+          <h3 class="font-semibold mb-2">1. Подключение</h3>
+          <p class="text-sm text-gray-600">Read‑only доступ к PostgreSQL, BigQuery, Snowflake или Redshift.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+          <h3 class="font-semibold mb-2">2. Запрос</h3>
+          <p class="text-sm text-gray-600">Сформулируйте вопрос или выберите шаблон: дизайн, мониторинг, итог.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+          <h3 class="font-semibold mb-2">3. Анализ</h3>
+          <p class="text-sm text-gray-600">LLM пишет SQL, считает статистику, ищет сегменты и аномалии.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+          <h3 class="font-semibold mb-2">4. Отчёт</h3>
+          <p class="text-sm text-gray-600">Markdown/PDF‑файл и уведомление в Slack или Telegram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Безопасность данных -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-2xl font-bold mb-4 text-center">Безопасность данных</h2>
+    <ul class="space-y-3 list-disc list-inside text-gray-700">
+      <li>Только чтение — никогда не пишем в вашу базу.</li>
+      <li>TLS 1.3 для всех соединений.</li>
+      <li>Данные обрабатываются в памяти, без персистентного копирования.</li>
+      <li>SOC 2 и GDPR‑ready инфраструктура.</li>
+    </ul>
+  </section>
+
+  <!-- Форма записи -->
+  <section id="signup" class="bg-indigo-600">
+    <div class="max-w-2xl mx-auto px-4 py-16 text-center space-y-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Получить ранний доступ</h2>
+      <form action="https://tally.so/r/XXXX" method="POST" class="space-y-4" onsubmit="plausible('form_submit')">
+        <input type="email" name="email" placeholder="Ваш e‑mail" required class="w-full px-4 py-3 rounded-lg" />
+        <button type="submit" class="w-full px-4 py-3 rounded-lg bg-white text-indigo-700 font-semibold hover:bg-gray-100 transition">
+          Отправить
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-sm text-gray-500">
+    © 2024 AI‑Analyst. Все права защищены.
+  </footer>
+</body>
+</html>
